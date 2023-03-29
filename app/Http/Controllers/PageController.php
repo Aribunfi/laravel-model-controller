@@ -17,7 +17,7 @@ class PageController extends Controller
         return view('movie-list', compact('movies'));
     }
 
-    public function movieDetail() {
+    public function movieDetail($movie_key) {
         $movies = config('db.movies');
         $movie = $movies[$movie_key];
         return view('movie-detail', compact('movie', 'movie_key'));
