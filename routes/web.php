@@ -14,6 +14,11 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [PageController::class, 'homepage'])->name('home');
+
+Route::get('/movie-list', [PageController::class, 'movieList'])->name('movie-list');
+
+Route::get('/movie', function () {
+    $movies = config('db.movies');
+    return view('movie', compact('movies'));
+})->name(movie);
