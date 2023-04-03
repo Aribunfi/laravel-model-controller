@@ -1,7 +1,4 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -33,20 +30,27 @@
       </nav>
 
       <main>
-        <section class="container">
+        <section class="title text-center">
           <h1>I migliori film</h1>
-          <div class="row">
-            @forelse ($movies as $movie)
-                <div class="col-3">
-                  <h5>{{$movies.title}}</h5>
+        </section>
+        <section class="container d-flex flex-wrap justify-content-center">
+          
+          @foreach ($movies as $movie)
+          <div class="grid column-gap-3">
+            <div class="p-2 g-col-6">
+                <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{$movie->title}}</h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">{{$movie->original_title}}</h6>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto illum provident, distinctio sequi ea suscipit itaque animi cumque facilis odit.</p>
+                  <span>{{$movie->nationality}}</span>
+                  <span>{{$movie->vote}}</span>
                 </div>
-            @empty
-            <div class="col-12">
-              <h5>Nessun film trovato, sorry!</h5>
+              </div>
             </div>
-                
-            @endforelse
           </div>
+          @endforeach
+        
         </section>
       </main>
     
